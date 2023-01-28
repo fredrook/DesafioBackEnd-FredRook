@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultados</title>
+  </head>
+  <body>
+    <ul>
+      <li style="display: flex; flex-direction: column;">
+        <h2>{{ loja }}</h2>
+        <p>Saldo: {{ saldo }}</p>
+        <table>
+          <tr>
+            <div style="border: 1px solid black;">
+              <th>Tipo</th>
+              <th>Data</th>
+              <th>Valor</th>
+              <th>CPF</th>
+              <th>Cartão</th>
+              <th>Hora</th>
+              <th>Dono da Loja</th>
+              <th>Nome</th>
+            </div>
+          </tr>
+          {% for transacao in transacoes %}
+          <tr>
+            <td>{{ transacao.tipo }}</td>
+            <td>{{ transacao.data }}</td>
+            <td>{{ transacao.valor }}</td>
+            <td>{{ transacao.cpf }}</td>
+            <td>{{ transacao.cartao }}</td>
+            <td>{{ transacao.hora }}</td>
+            <td>{{ transacao.dono }}</td>
+            <td>{{ transacao.nome }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        <h1>Saldo total: R$ {{saldo_total_por_loja}}</h1>
+      </li>
+    </ul>
+  </body>
+</html>
